@@ -778,7 +778,7 @@ func (o *ovsdbClient) transact(ctx context.Context, dbName string, operation ...
 	if o.rpcClient == nil {
 		return nil, ErrNotConnected
 	}
-	o.logger.V(5).Info("transacting operations", "database", dbName, "operations", fmt.Sprintf("%+v", operation))
+	o.logger.V(4).Info("transacting operations", "database", dbName, "operations", fmt.Sprintf("%+v", operation))
 	err := o.rpcClient.CallWithContext(ctx, "transact", args, &reply)
 	if err != nil {
 		if err == rpc2.ErrShutdown {
